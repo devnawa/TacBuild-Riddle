@@ -1,0 +1,30 @@
+{
+  "name": "tacbuild-riddle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devnawa/TacBuild-Riddle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devnawa/TacBuild-Riddle/issues"
+  },
+  "homepage": "https://github.com/devnawa/TacBuild-Riddle#readme",
+  "dependencies": {
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.9.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
