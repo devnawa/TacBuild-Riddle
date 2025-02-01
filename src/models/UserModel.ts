@@ -12,7 +12,7 @@ const userSchema = new Schema({
     },
     currentRiddle : {
         type: Number,
-        default : -1
+        default : 0
     }
 }, { timestamps : true})
 

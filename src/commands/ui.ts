@@ -1,4 +1,4 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } from "discord.js";
 
 const UI = new EmbedBuilder()
 .setTitle("TAC.Build Riddle")
@@ -25,15 +25,16 @@ const Buttons = new ActionRowBuilder<ButtonBuilder>()
 export default {
     command : new SlashCommandBuilder()
     .setName("ui")
-    .setDescription("Send the user interface to the channel command was used in"),
+    .setDescription("Send the user interface to the channel command was used in")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     execute : async (interaction: ChatInputCommandInteraction) => {
 
-        if(interaction.isAutocomplete() || !interaction.isCommand()) return 
+        if(interaction.isAutocomplete()) return 
 
         if(interaction.channel?.isSendable()) return await interaction.reply({ content : "I can't send messages in this channel", ephemeral : true})
 
         try{
-            await interaction.reply({ content : "UI"})
+            await interaction.reply({ embeds : [UI], components : [Buttons]})
         }catch(_){
             await interaction.reply({ content : "Failed to send UI", components : [Buttons], ephemeral : true})
         }

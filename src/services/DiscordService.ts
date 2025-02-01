@@ -16,8 +16,8 @@ const uploadGuildCommands = async (client:DiscordClient) => {
     const guilds = await client.getGuilds()
 
     for(const guild of guilds){
-        
-        await rest.put(
+        console.log(`Uploading commands to ${guild[1].name}`)
+        await rest.put( 
             Routes.applicationGuildCommands(applicationId, guild[1].id),
             { body : commands}
         )
